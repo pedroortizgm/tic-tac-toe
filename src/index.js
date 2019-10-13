@@ -32,9 +32,10 @@ function calculateWinner(squares) {
 
 class Board extends React.Component {
 
-  renderSquare(i) {
+    renderSquare(i) {
     return (
     <Square 
+      key = {i}
       value={this.props.squares[i]} 
       onClick={() => this.props.onClick(i)}
     />
@@ -48,7 +49,7 @@ class Board extends React.Component {
       for (let j = 0; j < 3; j++) {
         row.push(this.renderSquare((i * 3) + j));
       }
-      board.push(<div className='board-row'> { row } </div>)
+      board.push(<div className='board-row' key={ 'row' + i }> { row } </div>)
     }
     return board;
   }
